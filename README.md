@@ -1,0 +1,1 @@
+# ov-npu-offline-compilation
