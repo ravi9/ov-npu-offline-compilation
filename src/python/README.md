@@ -6,17 +6,18 @@ This sample demonstrates how to use OpenVINO off-target compilation to compile a
 
 For C++ sample, please refer to the [NPU Compile Tool](https://github.com/openvinotoolkit/openvino/tree/master/src/plugins/intel_npu/tools/compile_tool).
 
+---
 
-## Setup on Off-Target System (ex. Xeon)
+### Step 1: Setup on Off-Target System (ex. Xeon)
 
-1. Install OpenVINO Runtime
+1. Install OpenVINO Runtime from an archive file as it includes `libopenvino_intel_npu_compiler.so` needed for off-target compilation.
 
 - Follow the guide to install OpenVINO Runtime from an archive file: [Linux](https://docs.openvino.ai/2026/get-started/install-openvino/install-openvino-archive-linux.html) | [Windows](https://docs.openvino.ai/2026/get-started/install-openvino/install-openvino-archive-windows.html)
 
 - **Linux:**
 
     <details>
-    <summary>📦 Click to expand OpenVINO installation from an archive file on Ubuntu</summary>
+    <summary>📦 Click to expand OpenVINO 2026.0 installation from an archive file on Ubuntu</summary>
     <br>
 
     ```bash
@@ -40,12 +41,14 @@ pip install torch torchvision requests pillow --extra-index-url https://download
 
 3. Download the sample code and run:
 ```bash
+wget https://raw.githubusercontent.com/ravi9/ov-npu-offline-compilation/refs/heads/main/src/python/off-target-export.py
+
 source ov-off-target-env/bin/activate
 source /opt/intel/openvino/bin/setupvars.sh
 python off-target-export.py
 ```
 
-## Setup on Target System with NPU
+### Step 2: Setup on Target System with NPU
 
 1. Install the NPU drivers on the target system. For detailed instructions, see: [Additional Configurations for Hardware Acceleration](https://docs.openvino.ai/2026/get-started/install-openvino/configurations/configurations-intel-npu.html) 
 
@@ -62,11 +65,13 @@ pip install openvino
 
 4. Download the sample code and run:
 ```bash
+wget https://raw.githubusercontent.com/ravi9/ov-npu-offline-compilation/refs/heads/main/src/python/target-test.py
+
 source ov-target-env/bin/activate
 python target-test.py
 ```
 
-## Expected Output:
+### Expected Output:
 On the *off-target system*, you should see output similar to the following, indicating that the model was successfully compiled for the NPU and the blob file was exported:
 ```console
 $ python off-target-export.py 
