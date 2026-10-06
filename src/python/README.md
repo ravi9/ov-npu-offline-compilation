@@ -44,7 +44,7 @@ pip install torch torchvision requests pillow --extra-index-url https://download
 wget https://raw.githubusercontent.com/ravi9/ov-npu-offline-compilation/refs/heads/main/src/python/off-target-export.py
 
 source ov-off-target-env/bin/activate
-source /opt/intel/openvino/bin/setupvars.sh
+source /opt/intel/openvino/setupvars.sh
 python off-target-export.py
 ```
 
